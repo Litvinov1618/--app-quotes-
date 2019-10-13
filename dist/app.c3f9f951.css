@@ -1,0 +1,11 @@
+.quotes[data-v-aefadd] {
+    border: 2px solid gray;
+    border-radius: 15px;
+    padding: 10px;
+}
+.quotes__btn[data-v-aefadd] {
+    margin: 10px 0;
+}
+.quotes__header[data-v-aefadd] {
+    margin-top: 5px;
+}
