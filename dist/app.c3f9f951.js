@@ -8884,16 +8884,13 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"components/App.vue":[function(require,module,exports) {
+},{}],"components/Quotes/Quotes.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-//
-//
-//
 //
 //
 //
@@ -8983,6 +8980,142 @@ var _default = {
   }
 };
 exports.default = _default;
+        var $de1d30 = exports.default || module.exports;
+      
+      if (typeof $de1d30 === 'function') {
+        $de1d30 = $de1d30.options;
+      }
+    
+        /* template */
+        Object.assign($de1d30, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "quotes" }, [
+    _c("h2", [_vm._v("Цитата дня")]),
+    _vm._v(" "),
+    _c("div", [
+      _c("p", [
+        _vm._v("„ " + _vm._s(_vm.quotes[_vm.quoteCounter].text) + " “")
+      ]),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v("Автор: " + _vm._s(_vm.quotes[_vm.quoteCounter].name))
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "quotes__btn" }, [
+      _c("input", {
+        attrs: { type: "button", value: "Предыдущая цитата" },
+        on: { click: _vm.prevQuote }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "button", value: "Следующая цитата" },
+        on: { click: _vm.nextQuote }
+      }),
+      _vm._v(" "),
+      !_vm.allQuotes
+        ? _c("input", {
+            attrs: { type: "button", value: "Показать все цитаты" },
+            on: { click: _vm.showAll }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.allQuotes
+        ? _c("input", {
+            attrs: { type: "button", value: "Скрыть все цитаты" },
+            on: { click: _vm.hideAll }
+          })
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("span", [
+      _vm._v(
+        "Кличество цитат: " +
+          _vm._s(_vm.quoteCounter + 1) +
+          " / " +
+          _vm._s(_vm.quotes.length)
+      )
+    ]),
+    _vm._v(" "),
+    _vm.allQuotes
+      ? _c("div", [
+          _c(
+            "ol",
+            _vm._l(_vm.quotes, function(quote, idx) {
+              return _c("li", { key: idx }, [
+                _c("p", [_vm._v(_vm._s(quote.text))]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(quote.name))])
+              ])
+            }),
+            0
+          )
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-de1d30",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$de1d30', $de1d30);
+          } else {
+            api.reload('$de1d30', $de1d30);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"C:/Users/Алексндр/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"components/App.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Quotes = _interopRequireDefault(require("./Quotes/Quotes"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  components: {
+    Quotes: _Quotes.default
+  }
+};
+exports.default = _default;
         var $aefadd = exports.default || module.exports;
       
       if (typeof $aefadd === 'function') {
@@ -8995,74 +9128,15 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v("My great twitter-quotes-something-else app")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "quotes" }, [
-      _c("h2", { staticClass: "quotes__header" }, [_vm._v("Цитата дня")]),
+  return _c(
+    "div",
+    [
+      _c("h1", [_vm._v("My great twitter-quotes-something-else app")]),
       _vm._v(" "),
-      _c("div", [
-        _c("p", [
-          _vm._v("„ " + _vm._s(_vm.quotes[_vm.quoteCounter].text) + " “")
-        ]),
-        _vm._v(" "),
-        _c("span", [
-          _vm._v("Автор: " + _vm._s(_vm.quotes[_vm.quoteCounter].name))
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "quotes__btn" }, [
-        _c("input", {
-          attrs: { type: "button", value: "Предыдущая цитата" },
-          on: { click: _vm.prevQuote }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "button", value: "Следующая цитата" },
-          on: { click: _vm.nextQuote }
-        }),
-        _vm._v(" "),
-        !_vm.allQuotes
-          ? _c("input", {
-              attrs: { type: "button", value: "Показать все цитаты" },
-              on: { click: _vm.showAll }
-            })
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.allQuotes
-          ? _c("input", {
-              attrs: { type: "button", value: "Скрыть все цитаты" },
-              on: { click: _vm.hideAll }
-            })
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("span", [
-        _vm._v(
-          "Кличество цитат: " +
-            _vm._s(_vm.quoteCounter + 1) +
-            " / " +
-            _vm._s(_vm.quotes.length)
-        )
-      ]),
-      _vm._v(" "),
-      _vm.allQuotes
-        ? _c("div", [
-            _c(
-              "ol",
-              _vm._l(_vm.quotes, function(quote, idx) {
-                return _c("li", { key: idx }, [
-                  _c("p", [_vm._v(_vm._s(quote.text))]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(quote.name))])
-                ])
-              }),
-              0
-            )
-          ])
-        : _vm._e()
-    ])
-  ])
+      _c("Quotes")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -9071,7 +9145,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-aefadd",
+            _scopeId: null,
             functional: undefined
           };
         })());
@@ -9091,13 +9165,9 @@ render._withStripped = true
         }
 
         
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
       }
     })();
-},{"_css_loader":"C:/Users/Алексндр/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"js/app.js":[function(require,module,exports) {
+},{"./Quotes/Quotes":"components/Quotes/Quotes.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"js/app.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -9137,7 +9207,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53118" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55568" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
