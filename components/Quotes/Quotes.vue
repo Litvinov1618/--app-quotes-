@@ -11,15 +11,10 @@
             <input type="button" value="Показать все цитаты" @click="showAll" v-if="!allQuotes">
             <input type="button" value="Скрыть все цитаты" @click="hideAll" v-if="allQuotes">
         </div>
-        <span>Кличество цитат: {{ quoteCounter + 1 }} / {{ quotes.length }}</span>
-        <div v-if="allQuotes">
-           <ol>
-                <li v-for="(quote, idx) in quotes" :key="idx">
-                    <p>{{quote.text}}</p>
-                    <span>{{quote.name}}</span>
-               </li>
-           </ol>
-        </div>
+        <span>Количество цитат: {{ quoteCounter + 1 }} / {{ quotes.length }}</span>
+        <ol v-if="allQuotes">
+            <AllQuotes v-for="(quote, idx) in quotes" :key="idx" v-bind:quote='quote'></AllQuotes>
+        </ol>
     </div>
 </template>
 
@@ -35,9 +30,12 @@
     .quotes__header {
         margin-top: 5px;
     }
+
 </style>
 
 <script>
+    import AllQuotes from './AllQuotes'; 
+  
     export default {
         data: () => ({
             quotes: [
@@ -64,6 +62,9 @@
             prevQuote () {this.stepQuote(-1)},
             showAll () {this.allQuotes = true},
             hideAll () {this.allQuotes = false}
+        },
+        components: {
+            AllQuotes
         }     
     }
 </script>

@@ -1,3 +1,10 @@
+.quotes__item[data-v-383fc5] {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+.quotes__item small[data-v-383fc5] {
+  color: grey;
+}
 .quotes[data-v-de1d30] {
     border: 2px solid gray;
     border-radius: 15px;
@@ -8,4 +15,7 @@
 }
 .quotes__header[data-v-de1d30] {
     margin-top: 5px;
+}
+h1[data-v-5a99e4] {
+    font-family: Arial, Helvetica, sans-serif;
 }
