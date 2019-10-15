@@ -1,19 +1,16 @@
 <template>
     <div class="quotes">
         <h2>Цитата дня</h2>
-        <div>
-            <p>„ {{ quotes[quoteCounter].text }} “</p>
-            <span>Автор: {{quotes[quoteCounter].name }}</span>
-        </div>
+        <QuoteWindow :quotes="quotes" :quoteCounter="quoteCounter"></QuoteWindow>
         <div class="quotes__btn">
             <input type="button" value="Предыдущая цитата"  @click="prevQuote">
             <input type="button" value="Следующая цитата" @click="nextQuote">
             <input type="button" value="Показать все цитаты" @click="showAll" v-if="!allQuotes">
-            <input type="button" value="Скрыть все цитаты" @click="hideAll" v-if="allQuotes">
+            <input type="button" value="Скрыть все цитаты" @click="hideAll" v-else>
         </div>
         <span>Количество цитат: {{ quoteCounter + 1 }} / {{ quotes.length }}</span>
         <ol v-if="allQuotes">
-            <AllQuotes v-for="(quote, idx) in quotes" :key="idx" v-bind:quote='quote'></AllQuotes>
+            <AllQuotes v-for="quote in quotes" :key="quote.text" :quote='quote'></AllQuotes>
         </ol>
     </div>
 </template>
@@ -25,16 +22,16 @@
         padding: 10px;
     }
     .quotes__btn {
-        margin: 10px 0;
+        padding: 10px 0;
     }
     .quotes__header {
         margin-top: 5px;
     }
-
 </style>
 
 <script>
     import AllQuotes from './AllQuotes'; 
+    import QuoteWindow from './QuoteWindow';
   
     export default {
         data: () => ({
@@ -64,7 +61,8 @@
             hideAll () {this.allQuotes = false}
         },
         components: {
-            AllQuotes
+            AllQuotes,
+            QuoteWindow,
         }     
     }
 </script>

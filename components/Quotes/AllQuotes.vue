@@ -1,12 +1,12 @@
 <template>
-    <li class="quotes__item">
+    <li class="item">
         <p>"{{quote.text}}"</p>
         <small>{{quote.name}}</small>
     </li>
 </template>
 
 <style lang="scss" scoped>
-    .quotes__item {
+    .item {
         font-size: 18px;
         padding-bottom: 10px;
 

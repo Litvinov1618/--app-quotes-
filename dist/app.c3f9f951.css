@@ -1,8 +1,9 @@
-.quotes__item[data-v-383fc5] {
+@charset "UTF-8";
+.шtem[data-v-383fc5] {
   font-size: 18px;
   padding-bottom: 10px;
 }
-.quotes__item small[data-v-383fc5] {
+.шtem small[data-v-383fc5] {
   color: grey;
 }
 .quotes[data-v-de1d30] {
@@ -11,7 +12,7 @@
     padding: 10px;
 }
 .quotes__btn[data-v-de1d30] {
-    margin: 10px 0;
+    padding: 10px 0;
 }
 .quotes__header[data-v-de1d30] {
     margin-top: 5px;

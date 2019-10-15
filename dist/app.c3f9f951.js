@@ -8926,7 +8926,7 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("li", { staticClass: "quotes__item" }, [
+  return _c("li", { staticClass: "шtem" }, [
     _c("p", [_vm._v('"' + _vm._s(_vm.quote.text) + '"')]),
     _vm._v(" "),
     _c("small", [_vm._v(_vm._s(_vm.quote.name))])
@@ -8965,7 +8965,72 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"C:/Users/Алексндр/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"components/Quotes/Quotes.vue":[function(require,module,exports) {
+},{"_css_loader":"C:/Users/Алексндр/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"components/Quotes/QuoteWindow.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: ['quotes', 'quoteCounter']
+};
+exports.default = _default;
+        var $67b0fa = exports.default || module.exports;
+      
+      if (typeof $67b0fa === 'function') {
+        $67b0fa = $67b0fa.options;
+      }
+    
+        /* template */
+        Object.assign($67b0fa, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("p", [_vm._v("„ " + _vm._s(_vm.quotes[_vm.quoteCounter].text) + " “")]),
+    _vm._v(" "),
+    _c("span", [_vm._v("Автор: " + _vm._s(_vm.quotes[_vm.quoteCounter].name))])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$67b0fa', $67b0fa);
+          } else {
+            api.reload('$67b0fa', $67b0fa);
+          }
+        }
+
+        
+      }
+    })();
+},{"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"components/Quotes/Quotes.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8975,12 +9040,10 @@ exports.default = void 0;
 
 var _AllQuotes = _interopRequireDefault(require("./AllQuotes"));
 
+var _QuoteWindow = _interopRequireDefault(require("./QuoteWindow"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
 //
 //
 //
@@ -9061,7 +9124,8 @@ var _default = {
     }
   },
   components: {
-    AllQuotes: _AllQuotes.default
+    AllQuotes: _AllQuotes.default,
+    QuoteWindow: _QuoteWindow.default
   }
 };
 exports.default = _default;
@@ -9077,64 +9141,62 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "quotes" }, [
-    _c("h2", [_vm._v("Цитата дня")]),
-    _vm._v(" "),
-    _c("div", [
-      _c("p", [
-        _vm._v("„ " + _vm._s(_vm.quotes[_vm.quoteCounter].text) + " “")
+  return _c(
+    "div",
+    { staticClass: "quotes" },
+    [
+      _c("h2", [_vm._v("Цитата дня")]),
+      _vm._v(" "),
+      _c("QuoteWindow", {
+        attrs: { quotes: _vm.quotes, quoteCounter: _vm.quoteCounter }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "quotes__btn" }, [
+        _c("input", {
+          attrs: { type: "button", value: "Предыдущая цитата" },
+          on: { click: _vm.prevQuote }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "button", value: "Следующая цитата" },
+          on: { click: _vm.nextQuote }
+        }),
+        _vm._v(" "),
+        !_vm.allQuotes
+          ? _c("input", {
+              attrs: { type: "button", value: "Показать все цитаты" },
+              on: { click: _vm.showAll }
+            })
+          : _c("input", {
+              attrs: { type: "button", value: "Скрыть все цитаты" },
+              on: { click: _vm.hideAll }
+            })
       ]),
       _vm._v(" "),
       _c("span", [
-        _vm._v("Автор: " + _vm._s(_vm.quotes[_vm.quoteCounter].name))
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "quotes__btn" }, [
-      _c("input", {
-        attrs: { type: "button", value: "Предыдущая цитата" },
-        on: { click: _vm.prevQuote }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "button", value: "Следующая цитата" },
-        on: { click: _vm.nextQuote }
-      }),
-      _vm._v(" "),
-      !_vm.allQuotes
-        ? _c("input", {
-            attrs: { type: "button", value: "Показать все цитаты" },
-            on: { click: _vm.showAll }
-          })
-        : _vm._e(),
+        _vm._v(
+          "Количество цитат: " +
+            _vm._s(_vm.quoteCounter + 1) +
+            " / " +
+            _vm._s(_vm.quotes.length)
+        )
+      ]),
       _vm._v(" "),
       _vm.allQuotes
-        ? _c("input", {
-            attrs: { type: "button", value: "Скрыть все цитаты" },
-            on: { click: _vm.hideAll }
-          })
+        ? _c(
+            "ol",
+            _vm._l(_vm.quotes, function(quote) {
+              return _c("AllQuotes", {
+                key: quote.text,
+                attrs: { quote: quote }
+              })
+            }),
+            1
+          )
         : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("span", [
-      _vm._v(
-        "Количество цитат: " +
-          _vm._s(_vm.quoteCounter + 1) +
-          " / " +
-          _vm._s(_vm.quotes.length)
-      )
-    ]),
-    _vm._v(" "),
-    _vm.allQuotes
-      ? _c(
-          "ol",
-          _vm._l(_vm.quotes, function(quote, idx) {
-            return _c("AllQuotes", { key: idx, attrs: { quote: quote } })
-          }),
-          1
-        )
-      : _vm._e()
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -9169,7 +9231,7 @@ render._withStripped = true
       
       }
     })();
-},{"./AllQuotes":"components/Quotes/AllQuotes.vue","_css_loader":"C:/Users/Алексндр/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"components/Header.vue":[function(require,module,exports) {
+},{"./AllQuotes":"components/Quotes/AllQuotes.vue","./QuoteWindow":"components/Quotes/QuoteWindow.vue","_css_loader":"C:/Users/Алексндр/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"components/Header.vue":[function(require,module,exports) {
 
         var $5a99e4 = exports.default || module.exports;
       
@@ -9330,7 +9392,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50694" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51244" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
