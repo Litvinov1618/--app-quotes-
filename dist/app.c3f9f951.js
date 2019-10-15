@@ -8910,8 +8910,32 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
-  props: ['quote']
+  data: function data() {
+    return {
+      allQuotes: false
+    };
+  },
+  props: ['quotes'],
+  methods: {
+    showAll: function showAll() {
+      this.allQuotes = true;
+    },
+    hideAll: function hideAll() {
+      this.allQuotes = false;
+    }
+  }
 };
 exports.default = _default;
         var $383fc5 = exports.default || module.exports;
@@ -8926,10 +8950,32 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("li", { staticClass: "шtem" }, [
-    _c("p", [_vm._v('"' + _vm._s(_vm.quote.text) + '"')]),
+  return _c("div", [
+    _c("div", { staticClass: "buttons-outer" }, [
+      !_vm.allQuotes
+        ? _c("input", {
+            attrs: { type: "button", value: "Показать все цитаты" },
+            on: { click: _vm.showAll }
+          })
+        : _c("input", {
+            attrs: { type: "button", value: "Скрыть все цитаты" },
+            on: { click: _vm.hideAll }
+          })
+    ]),
     _vm._v(" "),
-    _c("small", [_vm._v(_vm._s(_vm.quote.name))])
+    _vm.allQuotes
+      ? _c(
+          "ol",
+          _vm._l(_vm.quotes, function(quote) {
+            return _c("li", { key: quote.text, staticClass: "item" }, [
+              _c("p", [_vm._v('"' + _vm._s(quote.text) + '"')]),
+              _vm._v(" "),
+              _c("small", [_vm._v(_vm._s(quote.name))])
+            ])
+          }),
+          0
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -9071,10 +9117,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
 var _default = {
   data: function data() {
     return {
@@ -9100,8 +9142,7 @@ var _default = {
         name: 'Леонардо да Винчи',
         text: 'Ничто так не обманывает нас, как наше мнение.'
       }],
-      quoteCounter: 0,
-      allQuotes: false
+      quoteCounter: 0
     };
   },
   methods: {
@@ -9115,12 +9156,6 @@ var _default = {
     },
     prevQuote: function prevQuote() {
       this.stepQuote(-1);
-    },
-    showAll: function showAll() {
-      this.allQuotes = true;
-    },
-    hideAll: function hideAll() {
-      this.allQuotes = false;
     }
   },
   components: {
@@ -9160,17 +9195,7 @@ exports.default = _default;
         _c("input", {
           attrs: { type: "button", value: "Следующая цитата" },
           on: { click: _vm.nextQuote }
-        }),
-        _vm._v(" "),
-        !_vm.allQuotes
-          ? _c("input", {
-              attrs: { type: "button", value: "Показать все цитаты" },
-              on: { click: _vm.showAll }
-            })
-          : _c("input", {
-              attrs: { type: "button", value: "Скрыть все цитаты" },
-              on: { click: _vm.hideAll }
-            })
+        })
       ]),
       _vm._v(" "),
       _c("span", [
@@ -9182,18 +9207,7 @@ exports.default = _default;
         )
       ]),
       _vm._v(" "),
-      _vm.allQuotes
-        ? _c(
-            "ol",
-            _vm._l(_vm.quotes, function(quote) {
-              return _c("AllQuotes", {
-                key: quote.text,
-                attrs: { quote: quote }
-              })
-            }),
-            1
-          )
-        : _vm._e()
+      _c("AllQuotes", { attrs: { quotes: _vm.quotes } })
     ],
     1
   )
@@ -9392,7 +9406,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51244" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54323" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

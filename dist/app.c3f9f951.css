@@ -1,10 +1,12 @@
-@charset "UTF-8";
-.шtem[data-v-383fc5] {
+.item[data-v-383fc5] {
   font-size: 18px;
   padding-bottom: 10px;
 }
-.шtem small[data-v-383fc5] {
+.item small[data-v-383fc5] {
   color: grey;
+}
+.buttons-outer[data-v-383fc5] {
+  padding: 10px 0;
 }
 .quotes[data-v-de1d30] {
     border: 2px solid gray;

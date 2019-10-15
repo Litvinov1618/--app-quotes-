@@ -5,13 +5,9 @@
         <div class="quotes__btn">
             <input type="button" value="Предыдущая цитата"  @click="prevQuote">
             <input type="button" value="Следующая цитата" @click="nextQuote">
-            <input type="button" value="Показать все цитаты" @click="showAll" v-if="!allQuotes">
-            <input type="button" value="Скрыть все цитаты" @click="hideAll" v-else>
         </div>
         <span>Количество цитат: {{ quoteCounter + 1 }} / {{ quotes.length }}</span>
-        <ol v-if="allQuotes">
-            <AllQuotes v-for="quote in quotes" :key="quote.text" :quote='quote'></AllQuotes>
-        </ol>
+        <AllQuotes :quotes="quotes"></AllQuotes>
     </div>
 </template>
 
@@ -45,7 +41,6 @@
                 {name: 'Леонардо да Винчи', text: 'Ничто так не обманывает нас, как наше мнение.'}
             ],
             quoteCounter: 0,
-            allQuotes: false
         }),
         methods: {
             stepQuote (step) {
@@ -57,8 +52,7 @@
             },
             nextQuote () {this.stepQuote(1)},
             prevQuote () {this.stepQuote(-1)},
-            showAll () {this.allQuotes = true},
-            hideAll () {this.allQuotes = false}
+
         },
         components: {
             AllQuotes,
