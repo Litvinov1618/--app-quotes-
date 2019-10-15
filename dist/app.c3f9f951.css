@@ -8,16 +8,16 @@
 .buttons-outer[data-v-383fc5] {
   padding: 10px 0;
 }
+.quotes__btn {
+    padding: 10px 0;
+}
+.quotes__header {
+    margin-top: 5px;
+}
 .quotes[data-v-de1d30] {
     border: 2px solid gray;
     border-radius: 15px;
     padding: 10px;
-}
-.quotes__btn[data-v-de1d30] {
-    padding: 10px 0;
-}
-.quotes__header[data-v-de1d30] {
-    margin-top: 5px;
 }
 h1[data-v-5a99e4] {
     font-family: Arial, Helvetica, sans-serif;

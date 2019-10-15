@@ -9025,8 +9025,33 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default = {
-  props: ['quotes', 'quoteCounter']
+  data: function data() {
+    return {
+      quoteCounter: 0
+    };
+  },
+  methods: {
+    stepQuote: function stepQuote(step) {
+      this.quoteCounter += step;
+      if (this.quoteCounter >= this.quotes.length) this.quoteCounter = 0;
+      if (this.quoteCounter < 0) this.quoteCounter = this.quotes.length - 1;
+    },
+    nextQuote: function nextQuote() {
+      this.stepQuote(1);
+    },
+    prevQuote: function prevQuote() {
+      this.stepQuote(-1);
+    }
+  },
+  props: ['quotes']
 };
 exports.default = _default;
         var $67b0fa = exports.default || module.exports;
@@ -9044,7 +9069,30 @@ exports.default = _default;
   return _c("div", [
     _c("p", [_vm._v("„ " + _vm._s(_vm.quotes[_vm.quoteCounter].text) + " “")]),
     _vm._v(" "),
-    _c("span", [_vm._v("Автор: " + _vm._s(_vm.quotes[_vm.quoteCounter].name))])
+    _c("span", [_vm._v("Автор: " + _vm._s(_vm.quotes[_vm.quoteCounter].name))]),
+    _vm._v(" "),
+    _c("div", [
+      _c("div", { staticClass: "quotes__btn" }, [
+        _c("input", {
+          attrs: { type: "button", value: "Предыдущая цитата" },
+          on: { click: _vm.prevQuote }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "button", value: "Следующая цитата" },
+          on: { click: _vm.nextQuote }
+        })
+      ]),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "Количество цитат: " +
+            _vm._s(_vm.quoteCounter + 1) +
+            " / " +
+            _vm._s(_vm.quotes.length)
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -9074,9 +9122,13 @@ render._withStripped = true
         }
 
         
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
       }
     })();
-},{"vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"components/Quotes/Quotes.vue":[function(require,module,exports) {
+},{"_css_loader":"C:/Users/Алексндр/AppData/Roaming/npm/node_modules/parcel/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"components/Quotes/Quotes.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9090,17 +9142,6 @@ var _QuoteWindow = _interopRequireDefault(require("./QuoteWindow"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -9141,22 +9182,8 @@ var _default = {
       }, {
         name: 'Леонардо да Винчи',
         text: 'Ничто так не обманывает нас, как наше мнение.'
-      }],
-      quoteCounter: 0
+      }]
     };
-  },
-  methods: {
-    stepQuote: function stepQuote(step) {
-      this.quoteCounter += step;
-      if (this.quoteCounter >= this.quotes.length) this.quoteCounter = 0;
-      if (this.quoteCounter < 0) this.quoteCounter = this.quotes.length - 1;
-    },
-    nextQuote: function nextQuote() {
-      this.stepQuote(1);
-    },
-    prevQuote: function prevQuote() {
-      this.stepQuote(-1);
-    }
   },
   components: {
     AllQuotes: _AllQuotes.default,
@@ -9182,30 +9209,7 @@ exports.default = _default;
     [
       _c("h2", [_vm._v("Цитата дня")]),
       _vm._v(" "),
-      _c("QuoteWindow", {
-        attrs: { quotes: _vm.quotes, quoteCounter: _vm.quoteCounter }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "quotes__btn" }, [
-        _c("input", {
-          attrs: { type: "button", value: "Предыдущая цитата" },
-          on: { click: _vm.prevQuote }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "button", value: "Следующая цитата" },
-          on: { click: _vm.nextQuote }
-        })
-      ]),
-      _vm._v(" "),
-      _c("span", [
-        _vm._v(
-          "Количество цитат: " +
-            _vm._s(_vm.quoteCounter + 1) +
-            " / " +
-            _vm._s(_vm.quotes.length)
-        )
-      ]),
+      _c("QuoteWindow", { attrs: { quotes: _vm.quotes } }),
       _vm._v(" "),
       _c("AllQuotes", { attrs: { quotes: _vm.quotes } })
     ],
@@ -9406,7 +9410,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54323" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54823" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

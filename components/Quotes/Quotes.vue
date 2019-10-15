@@ -1,12 +1,7 @@
 <template>
     <div class="quotes">
         <h2>Цитата дня</h2>
-        <QuoteWindow :quotes="quotes" :quoteCounter="quoteCounter"></QuoteWindow>
-        <div class="quotes__btn">
-            <input type="button" value="Предыдущая цитата"  @click="prevQuote">
-            <input type="button" value="Следующая цитата" @click="nextQuote">
-        </div>
-        <span>Количество цитат: {{ quoteCounter + 1 }} / {{ quotes.length }}</span>
+        <QuoteWindow :quotes="quotes"></QuoteWindow>
         <AllQuotes :quotes="quotes"></AllQuotes>
     </div>
 </template>
@@ -16,12 +11,6 @@
         border: 2px solid gray;
         border-radius: 15px;
         padding: 10px;
-    }
-    .quotes__btn {
-        padding: 10px 0;
-    }
-    .quotes__header {
-        margin-top: 5px;
     }
 </style>
 
@@ -40,20 +29,7 @@
                 {name: 'Оскар Уайльд', text: 'Человек ценен, когда его слова совпадают с его действиями.'},
                 {name: 'Леонардо да Винчи', text: 'Ничто так не обманывает нас, как наше мнение.'}
             ],
-            quoteCounter: 0,
         }),
-        methods: {
-            stepQuote (step) {
-                this.quoteCounter += step;
-                if (this.quoteCounter >= this.quotes.length)
-                    this.quoteCounter = 0;
-                if (this.quoteCounter < 0)
-                    this.quoteCounter = this.quotes.length - 1;
-            },
-            nextQuote () {this.stepQuote(1)},
-            prevQuote () {this.stepQuote(-1)},
-
-        },
         components: {
             AllQuotes,
             QuoteWindow,
